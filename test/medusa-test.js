@@ -34,7 +34,6 @@ describe('Medusa', function() {
 
     assert.equal(medusa.statues.length, 1);
     assert.equal(medusa.statues[0].name, 'Jhun');
-
   });
 
   it('should only be able to have three victims as a statue', function() {
@@ -53,30 +52,19 @@ describe('Medusa', function() {
   });
 
   it('should unstone the the first victim and stone the 4th coming in', function() {
-        var medusa = new Medusa('Meeka');
-    // create medusa
-        var victim1 = new Person('Lousia');
-    // create first victim
-        var victim2 = new Person('Bree');
-    // create second victim
-        var victim3 = new Person('TayTay');
-    // create third victim
-        var victim4 = new Person('Steve');
-    // create fourth victim
+
+    var medusa = new Medusa('Meeka');
+    var victim1 = new Person('Lousia');
+    var victim2 = new Person('Bree');
+    var victim3 = new Person('TayTay');
+    var victim4 = new Person('Steve');
+
     medusa.stare(victim1);
-    // medusa stares at first victim
-    assert.equal(victim1.isStoned, true)
-    // assert that the first victim is stoned
     medusa.stare(victim2);
-    // medusa stares at second victim
     medusa.stare(victim3);
-    // medusa stares at third victim
     medusa.stare(victim4);
-    // medusa stares at fourth victim
-    assert.equal(victim4.isStoned, true)
-    // assert the fourth victim is stoned
-    assert.equal(victim1.isStoned, false)
-    // assert that the first victim is not stoned
+    assert.equal(victim1.stoned, false)
+    assert.equal(victim4.stoned, true)
   });
 })
 
@@ -100,8 +88,9 @@ describe('Person', function() {
     var medusa = new Medusa('Brenna');
     var victim = new Person('Jhun');
 
-    assert.equal(victim.isStoned, false);
+
+    assert.equal(victim.stoned, false);
     medusa.stare(victim);
-    assert.equal(victim.isStoned, true);
+    assert.equal(victim.stoned, true);
   });
 });

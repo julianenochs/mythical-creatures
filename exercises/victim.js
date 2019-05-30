@@ -1,6 +1,7 @@
 class Victim {
-	constructor () {
-		this.isStoned = isStoned;
+	constructor(name) {
+		this.name = name;
+		this.alive = true;
 	}
 }
 
